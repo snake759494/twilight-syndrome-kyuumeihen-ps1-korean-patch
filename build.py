@@ -82,6 +82,8 @@ def main():
                     p=parse(toks(dat))
                     head=[v for kd,v in p if kd=='H']; tail=[v for kd,v in p if kd in('E','X')]
                     tk=head+tokens(ko[n],cmaps[cap])+tail
+                    # 화자 이름 태그 8dNN: NN이 3 이상이면 한글 이름 첫 글자 뒤에서 줄이 끊김 -> 02로 고정
+                    tk=[0x8d02 if 0x8d03<=t<=0x8d0f else t for t in tk]
                     raw=struct.pack('<%dH'%len(tk),*tk)
                     z=comp(raw); assert dec(z)[0]==raw
                     if inplace and len(z)>o2-o:

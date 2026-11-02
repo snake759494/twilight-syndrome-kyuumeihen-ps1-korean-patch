@@ -1,5 +1,5 @@
 """릴리즈 xdelta 를 해시 검사 후 적용.
-사용: python tools/apply_release.py --xdelta xdelta3.exe --source "Twilight Syndrome - Kyuumei-hen (Japan).bin" --patch TwilightSyndrome_Kyuumeihen_PS1_KO_v1.0.xdelta --output "Twilight Syndrome - Kyuumei-hen (Korean).bin"
+사용: python tools/apply_release.py --xdelta xdelta3.exe --source "Twilight Syndrome - Kyuumei-hen (Japan).bin" --patch TwilightSyndrome_Kyuumeihen_PS1_KO_v1.1.xdelta --output "Twilight Syndrome - Kyuumei-hen (Korean).bin"
 """
 import argparse, hashlib, json, os, subprocess, sys
 

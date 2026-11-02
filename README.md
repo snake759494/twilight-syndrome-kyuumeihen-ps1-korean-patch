@@ -1,10 +1,10 @@
 # 트와일라잇 신드롬 ~구명편~ PS1 한글패치
 
-PS1 일본판 **トワイライトシンドローム ～救命編～ (SLPS-00405)**용 비공식 한국어 패치입니다. 다섯 번째 소문부터 열 번째 소문, 종장까지 **모든 챕터의 대사·선택지**를 한국어로 바꿨습니다. **챕터 타이틀 카드, 타이틀 메뉴, 진행 메뉴, 장소 이름, 엔딩 문구, 메모리 카드 안내 같은 그림 글자**도 한글로 다시 그렸습니다. 현재 배포판은 **v1.0 (2026-11-01)**입니다.
+PS1 일본판 **トワイライトシンドローム ～救命編～ (SLPS-00405)**용 비공식 한국어 패치입니다. 다섯 번째 소문부터 열 번째 소문, 종장까지 **모든 챕터의 대사·선택지**를 한국어로 바꿨습니다. **챕터 타이틀 카드, 타이틀 메뉴, 진행 메뉴, 장소 이름, 엔딩 문구, 메모리 카드 안내 같은 그림 글자**도 한글로 다시 그렸습니다. 현재 배포판은 **v1.1 (2026-11-02)**입니다.
 
 [패치 다운로드](https://github.com/snake759494/twilight-syndrome-kyuumeihen-ps1-korean-patch/releases/latest) · [기술 설명](docs/TECHNICAL.md) · [재빌드](docs/BUILD.md) · [변경 기록](CHANGELOG.md) · [권리 안내](RIGHTS.md)
 
-릴리즈 첨부 파일은 한글패치 **TwilightSyndrome_Kyuumeihen_PS1_KO_v1.0.xdelta**뿐입니다. 저장소에는 제작 소스와 한국어 번역만 공개합니다. 원본·완성 디스크 이미지, 추출한 게임 파일, 일본어 원문, 글꼴 파일, 외부 실행 파일은 포함하지 않습니다. GitHub가 자동으로 만드는 Source code ZIP/TAR는 저장소 소스를 압축한 것이며 게임 파일이 아닙니다.
+릴리즈 첨부 파일은 한글패치 **TwilightSyndrome_Kyuumeihen_PS1_KO_v1.1.xdelta**뿐입니다. 저장소에는 제작 소스와 한국어 번역만 공개합니다. 원본·완성 디스크 이미지, 추출한 게임 파일, 일본어 원문, 글꼴 파일, 외부 실행 파일은 포함하지 않습니다. GitHub가 자동으로 만드는 Source code ZIP/TAR는 저장소 소스를 압축한 것이며 게임 파일이 아닙니다.
 
 전편 『~탐색편~』 한글패치는 [twilight-syndrome-tansakuhen-ps1-korean-patch](https://github.com/snake759494/twilight-syndrome-tansakuhen-ps1-korean-patch)에 있습니다.
 
@@ -24,11 +24,11 @@ PS1 일본판 **トワイライトシンドローム ～救命編～ (SLPS-00405
 | **원본 BIN MD5** | `2039ce4c20617f8dfce6d0ded0835ebb` |
 | 원본 BIN SHA-1 | `30c5a44525a73cf3690062f0937bac102ac4acc0` |
 | 원본 BIN SHA-256 | `b832142fc8cf20ca039c177e3f5c1548d8326791ef4b57aa8d66dd59f2f53e57` |
-| xdelta 파일 크기 | 5,944,930 바이트 |
-| xdelta SHA-256 | `7b7c0deac3ef9b0367cbd24dee39df980794099f45168c9f22d96f11a04325ef` |
+| xdelta 파일 크기 | 5,944,879 바이트 |
+| xdelta SHA-256 | `8d2ab43727e12adb09d523d45b80e691a52fb917296e4bc67b26abda00bc216d` |
 | 적용 결과 BIN 크기 | 747,296,256 바이트 (원본과 같음) |
-| 적용 결과 BIN SHA-1 | `d0cd9affa9241c5b35ccf18d1b55b1b954bc42e2` |
-| 적용 결과 BIN SHA-256 | `f4308bbdeba07d14977f33e230285124bd40e242e6cdc81f964c4402dfb2abb2` |
+| 적용 결과 BIN SHA-1 | `cac813fa750b07d17cb13e8443a03f3f0ddb0e11` |
+| 적용 결과 BIN SHA-256 | `f2923114fae26630980e9ec171b49cfe4483e59b6c2e01a3deb335be720a4f1f` |
 
 원본 게임 파일은 사용자가 직접 준비해야 합니다.
 
@@ -44,7 +44,7 @@ Get-FileHash -Algorithm MD5 -LiteralPath '.\Twilight Syndrome - Kyuumei-hen (Jap
 
 ### xdelta UI 사용
 
-1. 릴리즈에서 `TwilightSyndrome_Kyuumeihen_PS1_KO_v1.0.xdelta`를 받습니다.
+1. 릴리즈에서 `TwilightSyndrome_Kyuumeihen_PS1_KO_v1.1.xdelta`를 받습니다.
 2. xdelta3 패치를 지원하는 도구에서 **Apply Patch** 기능을 엽니다.
 3. **Patch**에는 xdelta 파일을, **Source File**에는 해시가 일치하는 원본 `.bin`을 선택합니다.
 4. **Output File**에는 새 파일 이름을 지정합니다(예: `Twilight Syndrome - Kyuumei-hen (Korean).bin`).
@@ -61,13 +61,13 @@ xdelta는 호환성을 위해 압축·2차 압축·파일 경로 헤더 없이 �
 ### 명령줄 사용
 
 ```powershell
-.\xdelta3.exe -d -s '.\Twilight Syndrome - Kyuumei-hen (Japan).bin' '.\TwilightSyndrome_Kyuumeihen_PS1_KO_v1.0.xdelta' '.\Twilight Syndrome - Kyuumei-hen (Korean).bin'
+.\xdelta3.exe -d -s '.\Twilight Syndrome - Kyuumei-hen (Japan).bin' '.\TwilightSyndrome_Kyuumeihen_PS1_KO_v1.1.xdelta' '.\Twilight Syndrome - Kyuumei-hen (Korean).bin'
 ```
 
 해시를 자동으로 검사하고 CUE까지 만들어 주는 도구도 있습니다. Python 3과 xdelta3가 필요하며, 같은 이름의 출력 파일이 이미 있으면 덮어쓰지 않습니다.
 
 ```powershell
-python tools/apply_release.py --xdelta '.\xdelta3.exe' --source '.\Twilight Syndrome - Kyuumei-hen (Japan).bin' --patch '.\TwilightSyndrome_Kyuumeihen_PS1_KO_v1.0.xdelta' --output '.\Twilight Syndrome - Kyuumei-hen (Korean).bin'
+python tools/apply_release.py --xdelta '.\xdelta3.exe' --source '.\Twilight Syndrome - Kyuumei-hen (Japan).bin' --patch '.\TwilightSyndrome_Kyuumeihen_PS1_KO_v1.1.xdelta' --output '.\Twilight Syndrome - Kyuumei-hen (Korean).bin'
 ```
 
 ### 실행

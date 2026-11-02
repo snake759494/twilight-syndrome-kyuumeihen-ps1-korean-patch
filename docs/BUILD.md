@@ -30,7 +30,7 @@ python build.py "../Twilight Syndrome - Kyuumei-hen (Korean).bin"
 ## 배포 파일
 
 ```powershell
-xdelta3 -e -0 -S none -A -s "Twilight Syndrome - Kyuumei-hen (Japan).bin" "Twilight Syndrome - Kyuumei-hen (Korean).bin" TwilightSyndrome_Kyuumeihen_PS1_KO_v1.0.xdelta
+xdelta3 -e -0 -S none -A -s "Twilight Syndrome - Kyuumei-hen (Japan).bin" "Twilight Syndrome - Kyuumei-hen (Korean).bin" TwilightSyndrome_Kyuumeihen_PS1_KO_v1.1.xdelta
 ```
 
 ## 번역 수정
