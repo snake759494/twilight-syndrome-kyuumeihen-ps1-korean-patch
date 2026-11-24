@@ -51,6 +51,43 @@ def encode(toks,lit_chunks=None):
         else: out+=bytes([0xbc+t[1],t[2]>>8,t[2]&0xff])
     flush(); out.append(0xff); return bytes(out)
 def comp(data): return encode(comp_tokens(data))
+def comp_opt(data):
+    """최적 파싱(DP) 압축: 리터럴 덩어리(1+k)·런(2)·역참조(3) 비용 최소화. 대본처럼 작은 블록용"""
+    n=len(data); heads={}; prev=[-1]*n; mlen=[0]*n; mdist=[0]*n
+    for i in range(n):
+        if i+3<=n:
+            s_=heads.get(data[i:i+3],-1); tries=0
+            while s_>=0 and i-s_<=0xffff and tries<1024:
+                L=0
+                while i+L<n and L<35 and data[s_+L]==data[i+L]: L+=1
+                if L>mlen[i]: mlen[i]=L; mdist[i]=i-s_
+                if L==35: break
+                s_=prev[s_]; tries+=1
+            k=data[i:i+3]; prev[i]=heads.get(k,-1); heads[k]=i
+    run=[1]*n
+    for i in range(n-2,-1,-1):
+        if data[i+1]==data[i]: run[i]=min(run[i+1]+1,66)
+    INF=1<<30; cost=[INF]*(n+1); how=[None]*(n+1); cost[n]=0
+    for i in range(n-1,-1,-1):
+        b=INF; h=None
+        for k in range(1,min(128,n-i)+1):
+            c=1+k+cost[i+k]
+            if c<b: b=c; h=('L',k)
+        for L in range(3,run[i]+1):
+            c=2+cost[i+L]
+            if c<b: b=c; h=('R',L)
+        for L in range(4,mlen[i]+1):
+            c=3+cost[i+L]
+            if c<b: b=c; h=('M',L)
+        cost[i]=b; how[i]=h
+    out=bytearray(); i=0
+    while i<n:
+        t,k=how[i]
+        if t=='L': out.append(k-1); out+=data[i:i+k]
+        elif t=='R': out+=bytes([0x7d+k,data[i]])
+        else: d=mdist[i]; out+=bytes([0xbc+k,d>>8,d&0xff])
+        i+=k
+    out.append(0xff); return bytes(out)
 def _cost(toks):
     c=0; run=0
     for t in toks:

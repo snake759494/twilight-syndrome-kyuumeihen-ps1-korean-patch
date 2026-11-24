@@ -1,17 +1,17 @@
 {
- "version": "v1.1",
- "date": "2026-11-02",
+ "version": "v1.2",
+ "date": "2026-11-24",
  "game": "Twilight Syndrome - Kyuumei-hen (Japan) / SLPS-00405 / PS1 (CD, BIN/CUE 단일 트랙)",
- "asset": "TwilightSyndrome_Kyuumeihen_PS1_KO_v1.1.xdelta",
- "asset_size": 5944879,
- "asset_sha256": "8d2ab43727e12adb09d523d45b80e691a52fb917296e4bc67b26abda00bc216d",
+ "asset": "TwilightSyndrome_Kyuumeihen_PS1_KO_v1.2.xdelta",
+ "asset_size": 5943308,
+ "asset_sha256": "f8c2c2d4935efc460bb0c9421f834b28309b76e59060420f93902bb26f07a280",
  "xdelta_options": "xdelta3 -e -0 -S none -A (no compression, no secondary compression, no application header)",
  "source_bin_size": 747296256,
  "source_bin_md5": "2039ce4c20617f8dfce6d0ded0835ebb",
  "source_bin_sha1": "30c5a44525a73cf3690062f0937bac102ac4acc0",
  "source_bin_sha256": "b832142fc8cf20ca039c177e3f5c1548d8326791ef4b57aa8d66dd59f2f53e57",
  "output_bin_size": 747296256,
- "output_bin_md5": "5865531299bdc66b99b82d0851562600",
- "output_bin_sha1": "cac813fa750b07d17cb13e8443a03f3f0ddb0e11",
- "output_bin_sha256": "f2923114fae26630980e9ec171b49cfe4483e59b6c2e01a3deb335be720a4f1f"
+ "output_bin_md5": "5badc9c235c13c6333baf8ca9ed79fa4",
+ "output_bin_sha1": "3d6311eee0df67f38b4a3d8efedf592984ea5fbd",
+ "output_bin_sha256": "57f8482775e9dec9736be1792572e283d9ed3f668dcaf181e2c2eee23945dc51"
 }

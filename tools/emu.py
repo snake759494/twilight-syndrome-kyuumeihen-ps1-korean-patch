@@ -83,9 +83,10 @@ class Emu:
         if not s.hwnds or len(s.hwnds)<7 or not all(u32.IsWindow(h) for h in s.hwnds): s.refresh()
         vk=VK[k]; sc=u32.MapVirtualKeyW(vk,0)
         ext=0x01000000 if vk in (0x25,0x26,0x27,0x28) else 0
-        for h in s.hwnds: u32.PostMessageW(h,0x100,vk,1|(sc<<16)|ext)
+        dn,up=(0x104,0x105) if vk==0x79 else (0x100,0x101)   # F10은 시스템 키 메시지로 와야 함
+        for h in s.hwnds: u32.PostMessageW(h,dn,vk,1|(sc<<16)|ext)
         time.sleep(hold)
-        for h in s.hwnds: u32.PostMessageW(h,0x101,vk,1|(sc<<16)|ext|0xC0000000)
+        for h in s.hwnds: u32.PostMessageW(h,up,vk,1|(sc<<16)|ext|0xC0000000)
         time.sleep(0.05)
     def press(s,seq,wait=0.3):
         for k in seq.split():

@@ -39,7 +39,8 @@ class Writer(Disc):
         return lba
     def capacity(s,path):
         p,lba,size,_,_=s.files[path]
-        starts=sorted(set(x[1] for x in s.files.values()))
+        # 파일 시작뿐 아니라 디렉터리 레코드 섹터도 경계로 본다(덮어쓰면 그 폴더가 사라짐)
+        starts=sorted(set(x[1] for x in s.files.values())|set(x[3] for x in s.files.values()))
         nxt=min([x for x in starts if x>lba]+[s.end])
         return (nxt-lba)*2048
     def write_at(s,path,lba,data):

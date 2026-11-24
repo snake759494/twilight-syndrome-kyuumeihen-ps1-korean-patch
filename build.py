@@ -7,7 +7,7 @@ from ents import SCRIPTS
 from cdb import entries,parts
 from script import blocks,toks
 from tok import parse
-from lz import comp,dec
+from lz import comp,comp_opt,dec
 from enc import tokens,plain
 from ptrs import exe_ptrs
 from xref import consts
@@ -85,7 +85,7 @@ def main():
                     # 화자 이름 태그 8dNN: NN이 3 이상이면 한글 이름 첫 글자 뒤에서 줄이 끊김 -> 02로 고정
                     tk=[0x8d02 if 0x8d03<=t<=0x8d0f else t for t in tk]
                     raw=struct.pack('<%dH'%len(tk),*tk)
-                    z=comp(raw); assert dec(z)[0]==raw
+                    z=comp_opt(raw); assert dec(z)[0]==raw
                     if inplace and len(z)>o2-o:
                         print('  %s 블록 %d: 자리 부족(%d>%d), 원본 유지'%(name(cap,f,k),n,len(z),o2-o)); z=e[o:o2]
                     newe+=z
@@ -145,7 +145,7 @@ def main():
             nd=swap(p,d)
             if nd!=d or p in writes: writes[p]=nd
     for f,nb in writes.items():
-        lba=w.replace('/'+f,nb)
+        lba=w.replace('/'+f,nb,allow_move=False)   # 게임이 섹터 위치로 직접 읽으므로 옮기면 안 됨
         print(f,'->',len(nb),'lba',lba)
     cue=os.path.splitext(OUT)[0]+'.cue'
     open(cue,'w').write('FILE "%s" BINARY\n  TRACK 01 MODE2/2352\n    INDEX 01 00:00:00\n'%os.path.basename(OUT))
